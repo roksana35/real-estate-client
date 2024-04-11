@@ -1,0 +1,54 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Modern Family Home",
+      "segment_name": "Residential",
+      "description": "Beautifully designed family home with spacious living areas and a backyard garden.",
+      "price": "$500,000",
+      "status": "sale",
+      "area": "2500 sq ft",
+      "location": "Suburban area, City X",
+      "facilities": ["living room", "backyard garden", "garage"],
+      "image": "image_url",
+      "view_property_button": "View Property"
+    },
+    {
+      "id": 2,
+      "estate_title": "Luxury Apartment",
+      "segment_name": "Residential",
+      "description": "Elegant and luxurious apartment with stunning city views and premium amenities.",
+      "price": "$3,000/month",
+      "status": "rent",
+      "area": "1500 sq ft",
+      "location": "Downtown, City Y",
+      "facilities": ["swimming pool", "gym", "concierge service"],
+      "image": "image_url",
+      "view_property_button": "View Property"
+    },
+    {
+      "id": 3,
+      "estate_title": "Cozy Townhouse",
+      "segment_name": "Residential",
+      "description": "Charming townhouse with a cozy atmosphere and a quaint backyard patio.",
+      "price": "$350,000",
+      "status": "sale",
+      "area": "1800 sq ft",
+      "location": "Historic District, City Z",
+      "facilities": ["patio", "fireplace", "study room"],
+      "image": "image_url",
+      "view_property_button": "View Property"
+    },
+    {
+      "id": 4,
+      "estate_title": "Spacious Villa",
+      "segment_name": "Residential",
+      "description": "Grand villa with expansive living spaces, lush gardens, and a private pool.",
+      "price": "$1,200,000",
+      "status": "sale",
+      "area": "5000 sq ft",
+      "location": "Countryside, City W",
+      "facilities": ["private pool", "garden", "home theater"],
+      "image": "image_url",
+      "view_property_button": "View Property"
+    }
+  ]
