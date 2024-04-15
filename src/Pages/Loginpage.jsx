@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const Loginpage = () => {
-  const {signInUser,googleLogIn}=useContext(AuthContext);
+  const {signInUser,googleLogin,githubLogin}=useContext(AuthContext);
   const handleLogin=(e)=>{
     e.preventDefault();
     const email=e.target.email.value;
@@ -19,15 +19,15 @@ const Loginpage = () => {
     })
     
   }
-  const handleGoogleLogIn=()=>{
-      googleLogIn()
-      .then(result=>{
-        console.log(result.user)
-      })
-      .catch(error=>{
-        console.error(error)
-      })
-  }
+  // const handleGoogleLogIn=()=>{
+  //     googleLogIn()
+  //     .then(result=>{
+  //       console.log(result.user)
+  //     })
+  //     .catch(error=>{
+  //       console.error(error)
+  //     })
+  // }
  
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -60,11 +60,11 @@ const Loginpage = () => {
         </div>
       </form>
       <div className="p-2 mx-auto">
-      <button onClick={handleGoogleLogIn} className="btn btn-outline border-purple-900 border-2 ">Continue with Google</button>
+      <button onClick={()=>googleLogin()} className="btn btn-outline border-purple-900 border-2 ">Continue with Google</button>
 
       </div>
       <div className="p-2 mx-auto ">
-      <button className="btn btn-outline border-purple-900 border-2 ">Continue with Github</button>
+      <button onClick={()=>githubLogin()} className="btn btn-outline border-purple-900 border-2 ">Continue with Github</button>
 
       </div>
      
