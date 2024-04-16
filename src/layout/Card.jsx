@@ -2,17 +2,31 @@
 
 const Card = ({item}) => {
     console.log(item)
-    const {image,description,location,area,price}=item;
+    const {image,description,location,area,price,estate_title,facilities,status,segment_name}=item;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card lg:w-[500px] xl:w-[610px] bg-base-100 shadow-xl">
   <figure className="px-10 pt-10">
-    <img src={image} alt="Shoes" className="rounded-xl" />
+    <img src={image} alt="Shoes" className="rounded-xl lg:h-[350px]" />
   </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+  <div className="card-body  ">
+    <h2 className="card-title text-2xl font-bold ">{estate_title}</h2>
+    <div className="flex justify-around">
+      <p>Area:  {area}</p>
+      <p >Price:  {price}</p>
+    </div>
+    <div className="flex justify-around">
+      <p>segment_name:   {segment_name}</p>
+      <p >status:  {status}</p>
+    </div>
+    <div>
+      <p  className="text-black font-medium"><span className="text-black font-bold">Facilities:</span>       {facilities[1]}  </p>
+    </div>
+    <div>
+      <p  className="text-black font-medium"><span className="text-black font-bold">Location:</span>    {location}</p>
+    </div>
+    <p className=" font-medium">{description.slice(0,300)}....<span className="text-blue-800 font-medium ">see more</span></p>
     <div className="card-actions">
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="btn btn-primary">View Property</button>
     </div>
   </div>
 </div>

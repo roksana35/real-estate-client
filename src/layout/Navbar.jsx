@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/Authprovider";
 const Navbar = () => {
   const{logOut}=useContext( AuthContext)
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 sticky top-0 z-50 h-[76px]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -18,7 +18,15 @@ const Navbar = () => {
               
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">My Home</a>
+          
+          <img className='w-[100px]  h-full overflow-hidden rounded-full mb-6 ' src="https://i.ibb.co/ZXZgK7M/1002449-OIMZ3-S0.jpg"></img>
+          
+          <a className="btn btn-ghost text-xl ">
+          
+            My Home</a>
+
+          
+         
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

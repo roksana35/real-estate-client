@@ -6,7 +6,10 @@ const Route = () => {
     return (
         <div>
             <Navbar></Navbar>
+            <div className="  lg:w-[1024px]">
             <Outlet></Outlet>
+            </div>
+            
             <Footer></Footer>
         </div>
     );
