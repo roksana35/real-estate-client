@@ -7,6 +7,8 @@ import auth from "../firebase.config";
 
 const Authprovider = ({children}) => {
     const [user,setUser]=useState(null);
+    
+    
 
     
     const googleLogin=()=>{
@@ -42,12 +44,13 @@ const Authprovider = ({children}) => {
     },[])
 
     const authInfo={
-        user,
+        
         createUser,
          signInUser,
          googleLogin,
          githubLogin,
          logOut,
+         
          
 
     }

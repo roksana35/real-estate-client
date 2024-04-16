@@ -1,21 +1,44 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/Authprovider";
 import { Link } from "react-router-dom";
 
 
 const Loginpage = () => {
+  const [success,setSuccess]=useState('');
+  const [error,seterror]=useState('');
+  const [error2,seterror2]=useState('');
   const {signInUser,googleLogin,githubLogin}=useContext(AuthContext);
   const handleLogin=(e)=>{
     e.preventDefault();
     const email=e.target.email.value;
     const password =e.target.password.value;
     console.log(email,password)
+    seterror('');
+    seterror2('');
+    setSuccess('');
+
+    if(password.length<6){
+      seterror('password should be at least 6 characters')
+      return;
+    }
+    if(!/[A-Z]/.test(password)){
+      seterror('your password should have one uppercase')
+      return;
+      }
+      if(!/[a-z]/.test(password)){
+        seterror('your password should have one lowercase')
+        return;
+      }
+
     signInUser(email,password)
     .then(result=>{
-      console.log(result.user)
+      console.log(result.user);
+      setSuccess('user login successfully')
     })
     .catch(error=>{
-      console.error(error)
+      console.error(error);
+      seterror2(error.message)
+
     })
     
   }
@@ -49,6 +72,9 @@ const Loginpage = () => {
             <span className="label-text">Password</span>
           </label>
           <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+          {
+            error&&<p className="text-red-600 font-medium">{error}</p>
+          }
           
         </div>
         <div>
@@ -57,7 +83,14 @@ const Loginpage = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
+          
         </div>
+        {
+              error2&&<p className="text-red-600  font-semibold">{error2}</p>
+            }
+        {
+          success&&<p className=" text-green-600 font-semibold ">{success}</p>
+        }
       </form>
       <div className="p-2 mx-auto">
       <button onClick={()=>googleLogin()} className="btn btn-outline border-purple-900 border-2 ">Continue with Google</button>

@@ -11,6 +11,7 @@ import Errorpage from './layout/Errorpage';
 import Loginpage from './Pages/Loginpage';
 import Authprovider from './provider/Authprovider';
 import Register from './Pages/Register';
+import Homepage from './Pages/Homepage';
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,9 @@ const router = createBrowserRouter([
     errorElement:<Errorpage></Errorpage>,
     children:[
       {
+        path:"/",
+        element:<Homepage></Homepage>,
+        loader:()=>fetch('/data.json')
       }
     ]
   },

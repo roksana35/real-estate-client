@@ -3,52 +3,51 @@
       "id": 1,
       "estate_title": "Modern Family Home",
       "segment_name": "Residential",
-      "description": "Beautifully designed family home with spacious living areas and a backyard garden.",
+      "description": "Welcome to this modern family home located in a serene suburban area of City X. This beautifully designed residence offers spacious living areas, perfect for creating unforgettable family moments. Step into the elegantly appointed living room, where natural light floods through expansive windows, creating a warm and inviting ambiance. The open-plan layout seamlessly connects the living area to the gourmet kitchen, equipped with top-of-the-line appliances and ample counter space for culinary adventures. Enjoy the convenience of a backyard garden, ideal for outdoor entertaining or simply unwinding amidst nature's tranquility. With a garage providing secure parking, this home offers both comfort and practicality for modern family living.",
       "price": "$500,000",
       "status": "sale",
       "area": "2500 sq ft",
       "location": "Suburban area, City X",
       "facilities": ["living room", "backyard garden", "garage"],
-      "image": "image_url",
-      "view_property_button": "View Property"
+      "image": "https://i.ibb.co/zFBb7Lm/frames-for-your-heart-2d4l-AQAlb-DA-unsplash.jpg"
+      
     },
     {
       "id": 2,
       "estate_title": "Luxury Apartment",
       "segment_name": "Residential",
-      "description": "Elegant and luxurious apartment with stunning city views and premium amenities.",
+      "description": "Indulge in the epitome of urban luxury with this exquisite apartment located in the heart of downtown City Y. Boasting stunning city views from every angle, this residence exudes elegance and sophistication. Step inside to discover a spacious and meticulously designed interior, featuring high ceilings, sleek finishes, and floor-to-ceiling windows that flood the space with natural light. The open-concept living area seamlessly flows into a gourmet kitchen, complete with premium appliances and custom cabinetry. Residents can enjoy access to exclusive amenities, including a shimmering swimming pool, state-of-the-art gym, and personalized concierge service, elevating the living experience to unparalleled heights.",
       "price": "$3,000/month",
       "status": "rent",
       "area": "1500 sq ft",
       "location": "Downtown, City Y",
       "facilities": ["swimming pool", "gym", "concierge service"],
-      "image": "image_url",
-      "view_property_button": "View Property"
+      "image": "https://i.ibb.co/4gFTmRw/analog-landscape-city-with-buildings.jpg"
+      
     },
     {
       "id": 3,
       "estate_title": "Cozy Townhouse",
       "segment_name": "Residential",
-      "description": "Charming townhouse with a cozy atmosphere and a quaint backyard patio.",
+      "description": "Escape to luxury countryside living with this expansive villa nestled amidst the serene landscapes of City W. From the moment you arrive, you'll be captivated by the grandeur and sophistication of this remarkable estate. Step inside to discover a grand foyer that sets the tone for the opulent living spaces that await. The villa boasts generously proportioned rooms, including a magnificent home theater for cinematic entertainment and a private study for quiet reflection. Outside, lush gardens surround a sparkling private pool, offering a tranquil retreat for outdoor gatherings or leisurely swims on sunny days. With unparalleled privacy and luxury, this villa embodies the epitome of refined countryside living.",
       "price": "$350,000",
       "status": "sale",
       "area": "1800 sq ft",
       "location": "Historic District, City Z",
       "facilities": ["patio", "fireplace", "study room"],
-      "image": "image_url",
-      "view_property_button": "View Property"
+      "image": "https://i.ibb.co/56kMZKZ/gustavo-zambelli-n-Evz-SXBIhi-U-unsplash.jpg"
+     
     },
     {
       "id": 4,
       "estate_title": "Spacious Villa",
       "segment_name": "Residential",
-      "description": "Grand villa with expansive living spaces, lush gardens, and a private pool.",
+      "description": " Escape to luxury countryside living with this expansive villa nestled amidst the serene landscapes of City W. From the moment you arrive, you'll be captivated by the grandeur and sophistication of this remarkable estate. Step inside to discover a grand foyer that sets the tone for the opulent living spaces that await. The villa boasts generously proportioned rooms, including a magnificent home theater for cinematic entertainment and a private study for quiet reflection. Outside, lush gardens surround a sparkling private pool, offering a tranquil retreat for outdoor gatherings or leisurely swims on sunny days. With unparalleled privacy and luxury, this villa embodies the epitome of refined countryside living.",
       "price": "$1,200,000",
       "status": "sale",
       "area": "5000 sq ft",
       "location": "Countryside, City W",
       "facilities": ["private pool", "garden", "home theater"],
-      "image": "image_url",
-      "view_property_button": "View Property"
+      "image": "https://i.ibb.co/8Mbt7dj/chuttersnap-aw-L-YCt-PGv4-unsplash.jpg"
     }
   ]
