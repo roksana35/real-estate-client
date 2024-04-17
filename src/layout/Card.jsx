@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const Card = ({item}) => {
     console.log(item)
-    const {image,description,location,area,price,estate_title,facilities,status,segment_name}=item;
+    const {image,id,description,location,area,price,estate_title,facilities,status,segment_name}=item;
     return (
         <div className="card lg:w-[500px] xl:w-[610px] bg-base-100 shadow-xl">
   <figure className="px-10 pt-10">
@@ -24,9 +25,20 @@ const Card = ({item}) => {
     <div>
       <p  className="text-black font-medium"><span className="text-black font-bold">Location:</span>    {location}</p>
     </div>
-    <p className=" font-medium">{description.slice(0,300)}....<span className="text-blue-800 font-medium ">see more</span></p>
+    {
+      description.length>200?
+      <p>{description.slice(0,200)}</p>
+      :
+      <p>{description}</p>
+
+    }
+    {/* <p className=" font-medium">{description.slice(0,300)}....<span className="text-blue-800 font-medium ">see more</span></p> */}
     <div className="card-actions">
+      <Link to={`/item/${id}`}>
       <button className="btn btn-primary">View Property</button>
+
+      </Link>
+      
     </div>
   </div>
 </div>

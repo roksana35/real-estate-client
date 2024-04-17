@@ -3,7 +3,10 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/Authprovider";
 
 const Navbar = () => {
-  const{logOut}=useContext( AuthContext)
+  const{logOut,user}=useContext( AuthContext);
+  const handleLogout = ()=>{
+    logOut();
+  }
     return (
         <div className="navbar bg-base-100 sticky top-0 z-50 h-[76px]">
         <div className="navbar-start">
@@ -14,7 +17,11 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li><NavLink to='/' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Home</NavLink></li>
               <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
-              <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
+              {
+                user&& <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
+                
+              }
+              {/* // <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li> */}
               
             </ul>
           </div>
@@ -36,9 +43,31 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login'>
-          <button className="btn bg-green-500 text-white">Login</button>
-          </Link>
+          {
+            user? <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://i.ibb.co/7vhnSXx/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg">
+                  </img>
+                </div>
+
+              </label>
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+
+              </ul>
+              {/* <li>
+                <button className="btn btn-sm btn-ghost">Farhan</button>
+              </li> */}
+            
+            <button onClick={handleLogout} className="btn bg-green-500 text-white">Sign Out </button>
+            </div>
+            :
+            <Link to='/login'>
+            <button className="btn bg-green-500 text-white">Login</button>
+            </Link>
+
+          }
+          
           
         </div>
       </div>

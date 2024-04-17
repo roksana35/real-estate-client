@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/Authprovider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Loginpage = () => {
@@ -8,6 +8,8 @@ const Loginpage = () => {
   const [error,seterror]=useState('');
   const [error2,seterror2]=useState('');
   const {signInUser,googleLogin,githubLogin}=useContext(AuthContext);
+  const location=useLocation();
+  const navigate= useNavigate()
   const handleLogin=(e)=>{
     e.preventDefault();
     const email=e.target.email.value;
@@ -33,6 +35,7 @@ const Loginpage = () => {
     signInUser(email,password)
     .then(result=>{
       console.log(result.user);
+      navigate(location?.state?location.state:"/")
       setSuccess('user login successfully')
     })
     .catch(error=>{
@@ -53,7 +56,7 @@ const Loginpage = () => {
   // }
  
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 lg:ml-44">
   <div className="hero-content flex-col ">
     <div className="text-center ">
       <h1 className="text-5xl font-bold">Login now!</h1>

@@ -1,12 +1,20 @@
+
+
+
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/Authprovider";
 import { Link } from "react-router-dom";
+// import {updateProfile} from 'firebase/auth'
+// import auth from "../firebase.config";
+
+// import { toast ,ToastContainer} from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Register = () => {
         
-        const {createUser}=useContext(AuthContext);
+        const {createUser,setUser,user}=useContext(AuthContext);
         const [error,seterror]=useState('');
         const [error2,seterror2]=useState('');
         const [success,setSuccess]=useState('');
@@ -18,6 +26,7 @@ const Register = () => {
         const name=e.target.name.value;
     const email=e.target.email.value;
     const password =e.target.password.value;
+    const image = e.target.image.value;
     seterror('');
     seterror2('');
     setSuccess('');
@@ -37,10 +46,14 @@ const Register = () => {
       }
       
 
-    console.log(name,email,password);
+    console.log(name,email,password,image);
     createUser(email,password)
     .then(result=>{
+    
       console.log(result.user);
+      // toast.success('user create successfully')
+      
+      
       
       setSuccess('user create successfully')
     })
@@ -54,7 +67,7 @@ const Register = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 lg:ml-44">
         <div className="hero-content flex-col ">
           <div className="text-center ">
             <h1 className="text-5xl font-bold">Register now!</h1>
@@ -78,8 +91,9 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Image url</span>
                 </label>
-                <input type="text" name="image" placeholder="image url" className="input input-bordered"  />
+                <input type="text" name="image" placeholder="image url" className="input input-bordered" required />
               </div>
+              
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
@@ -100,8 +114,10 @@ const Register = () => {
             }
 
               <div><h1>Already have a account?<Link to="/login"><span className="text-primary font-semibold ml-2" >LogIn</span></Link></h1></div>
+             
               
             </form>
+            {/* <ToastContainer></ToastContainer> */}
             
           </div>
         </div>
@@ -109,4 +125,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Register; 

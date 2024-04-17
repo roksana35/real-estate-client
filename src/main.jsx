@@ -12,6 +12,10 @@ import Loginpage from './Pages/Loginpage';
 import Authprovider from './provider/Authprovider';
 import Register from './Pages/Register';
 import Homepage from './Pages/Homepage';
+import Privateroute from './layout/Privateroute';
+import Updateprofile from './Pages/Updateprofile';
+import Deatils from './Pages/Deatils';
+import Private from './layout/Private';
 
 
 const router = createBrowserRouter([
@@ -24,16 +28,36 @@ const router = createBrowserRouter([
         path:"/",
         element:<Homepage></Homepage>,
         loader:()=>fetch('/data.json')
+      },
+      {
+        path:'/update',
+        element:<Privateroute><Updateprofile></Updateprofile></Privateroute>
+      },
+      {
+        path:'/item/:id',
+        element:<Private><Deatils></Deatils></Private>
       }
     ]
   },
   {
     path:'/login',
-    element:<Loginpage></Loginpage>
+    element:<Route></Route>,
+    children:[
+      {
+        path:"/login",
+        element:<Loginpage></Loginpage>
+      }
+    ]
   },
   {
     path:'/register',
-    element:<Register></Register>
+    element:<Route></Route>,
+    children:[
+      {
+        path:'/register',
+        element:<Register></Register>
+      }
+    ]
   }
 ]);
 
