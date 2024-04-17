@@ -16,6 +16,7 @@ import Privateroute from './layout/Privateroute';
 import Updateprofile from './Pages/Updateprofile';
 import Deatils from './Pages/Deatils';
 import Private from './layout/Private';
+import Contact from './Pages/Contact';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path:'/update',
         element:<Privateroute><Updateprofile></Updateprofile></Privateroute>
+      },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
+
       },
       {
         path:'/item/:id',

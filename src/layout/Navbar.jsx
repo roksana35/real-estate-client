@@ -17,6 +17,7 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li><NavLink to='/' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Home</NavLink></li>
               <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
+              <li><NavLink to='/contact' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>contact</NavLink></li>
               {
                 user&& <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
                 
@@ -39,7 +40,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
           <li><NavLink to='/' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Home</NavLink></li>
               <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
-              <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
+              <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
+              {
+                user&& <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
+                
+              }
           </ul>
         </div>
         <div className="navbar-end">
