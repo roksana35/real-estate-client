@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import { Helmet } from "react-helmet-async";
+import { FaEyeSlash } from "react-icons/fa";
+import { IoMdEye } from "react-icons/io";
 
 
 const Loginpage = () => {
@@ -11,6 +13,7 @@ const Loginpage = () => {
   const [error,seterror]=useState('');
   const [error2,seterror2]=useState('');
   const {signInUser,googleLogin,githubLogin}=useContext(AuthContext);
+  const [showpassword,setShowpassword]=useState(false);
   const location=useLocation();
   const navigate= useNavigate()
   const handleLogin=(e)=>{
@@ -69,7 +72,7 @@ const Loginpage = () => {
         <div className="hero min-h-screen bg-base-200 ">
   <div className="hero-content flex-col ">
     <div className="text-center ">
-      <h1 className="text-5xl font-bold">Login now!</h1>
+      <h1 className=" text-3xl lg:text-5xl font-bold">Login now!</h1>
       
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -84,7 +87,12 @@ const Loginpage = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+          <input type={showpassword?"text":"password"} name="password" placeholder="password" className="input input-bordered" required />
+          <span className="absolute mt-14 ml-48 lg:ml-56" onClick={()=>setShowpassword(!showpassword)}>
+                  {
+                    showpassword?<IoMdEye />:<FaEyeSlash />
+                  }
+                </span>
           {
             error&&<p className="text-red-600 font-medium">{error}</p>
           }

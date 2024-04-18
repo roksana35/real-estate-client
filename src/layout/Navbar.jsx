@@ -16,12 +16,14 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li><NavLink to='/' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Home</NavLink></li>
-              <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
-              <li><NavLink to='/contact' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>contact</NavLink></li>
               {
-                user&& <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
+            user&& <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
+          }
+              <li><NavLink to='/contact' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>contact</NavLink></li>
+              
                 
-              }
+                
+              
               {/* // <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li> */}
               
             </ul>
@@ -39,12 +41,15 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
           <li><NavLink to='/' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Home</NavLink></li>
-              <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
+
+          {
+            user&& <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
+          }
+              
               <li><NavLink to='/contact' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>contact</NavLink></li>
-              {
-                user&& <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
+              
                 
-              }
+              
           </ul>
         </div>
         <div className="navbar-end">
@@ -52,7 +57,7 @@ const Navbar = () => {
             user? <div className="dropdown dropdown-end flex items-center justify-center">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10  rounded-full ">
-                  <img className="flex items-center justify-center "  src={user.photoURL}>
+                  <img className="flex items-center justify-center "  src={user?.photoURL||"https://i.ibb.co/mFj3TNM/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg"}>
                   </img>
                   
                 </div>
@@ -61,7 +66,7 @@ const Navbar = () => {
               </label>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-24 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li>
-                <button className="btn btn-sm btn-ghost">{user.displayName}</button>
+                <button className="btn btn-sm btn-ghost">{user?.displayName || 'user name not found'}</button>
               </li>
 
               </ul>

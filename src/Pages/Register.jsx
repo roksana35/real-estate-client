@@ -3,11 +3,13 @@
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/Authprovider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
+import { FaEyeSlash } from "react-icons/fa";
+import { IoMdEye } from "react-icons/io";
 // import {updateProfile} from 'firebase/auth'
 // import auth from "../firebase.config";
 
@@ -18,10 +20,13 @@ import { Helmet } from "react-helmet-async";
 
 const Register = () => {
         
-        const {createUser,setUser,user}=useContext(AuthContext);
+        const {createUser,setUser,user,updateUserProfile}=useContext(AuthContext);
         const [error,seterror]=useState('');
         const [error2,seterror2]=useState('');
         const [success,setSuccess]=useState('');
+        const [showpassword,setShowpassword]=useState(false);
+        const navigate =useNavigate();
+        const from='/';
         
 
     const handleSignUp=(e)=>{
@@ -53,7 +58,11 @@ const Register = () => {
     console.log(name,email,password,image);
     createUser(email,password)
     .then(result=>{
-      updateProfile()
+      updateUserProfile(name,image)
+      .then(()=>{
+        navigate(from)
+
+      })
     
       console.log(result.user);
       // toast.success('user create successfully')
@@ -82,7 +91,7 @@ const Register = () => {
         <div className="hero min-h-screen bg-base-200 ">
         <div className="hero-content flex-col ">
           <div className="text-center ">
-            <h1 className="text-5xl font-bold">Register now!</h1>
+            <h1 className=" text-3xl lg:text-5xl font-bold">Register now!</h1>
             
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -103,14 +112,21 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Image url</span>
                 </label>
-                <input type="text" name="image" placeholder="image url" className="input input-bordered" required />
+                <input type="text" name="image" placeholder="image url" className="input input-bordered"  />
               </div>
               
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                <input 
+                type={showpassword?"text":"password"}
+                 name="password" placeholder="password" className="input input-bordered" required />
+                <span className="absolute mt-14 ml-48 lg:ml-56" onClick={()=>setShowpassword(!showpassword)}>
+                  {
+                    showpassword?<IoMdEye />:<FaEyeSlash />
+                  }
+                </span>
                 <p className="text-red-700">{error}</p>
                 
               </div>

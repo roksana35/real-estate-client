@@ -2,7 +2,7 @@
 
 const Banner = () => {
     return (
-      <div className="relative lg:min-w-[1024px] mx-auto ml-40">
+      <div className="relative lg:min-w-[1024px] mx-auto ">
         <div className="carousel w-full lg:h-[500px] rounded-lg z-0 opacity-100 ">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="https://i.ibb.co/TWmc59q/chinese-city.jpg" className="w-full" />
