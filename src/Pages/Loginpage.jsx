@@ -1,6 +1,9 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/Authprovider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer";
+import { Helmet } from "react-helmet-async";
 
 
 const Loginpage = () => {
@@ -56,7 +59,14 @@ const Loginpage = () => {
   // }
  
     return (
-        <div className="hero min-h-screen bg-base-200 lg:ml-44">
+      <div>
+        <Helmet>
+          <title>Login Page</title>
+        </Helmet>
+        <Navbar></Navbar>
+        
+
+        <div className="hero min-h-screen bg-base-200 ">
   <div className="hero-content flex-col ">
     <div className="text-center ">
       <h1 className="text-5xl font-bold">Login now!</h1>
@@ -106,7 +116,11 @@ const Loginpage = () => {
      
     </div>
   </div>
-</div>
+</div> 
+<Footer></Footer>
+
+      </div>
+        
     );
 };
 

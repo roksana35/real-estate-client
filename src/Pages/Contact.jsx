@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { ToastContainer, toast } from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,7 +27,12 @@ const Contact = () => {
          }
         }
     return (
-        <div className="text-center p-2 lg:p-4 mt-3 lg:mt-8 lg:space-y-6">
+        <div>
+            <Helmet>
+                <title>Contact Page</title>
+            </Helmet>
+
+<div className="text-center p-2 lg:p-4 mt-3 lg:mt-8 lg:space-y-6">
             <h1 className="text-2xl text-black font-semibold"> Reach Out</h1>
             <h2 className="text-xl text-black font-medium">if you would like to contact us fill up the form below</h2>
             <div className="space-y-3 shadow-lg p-1 mt-4 lg:p-6 lg:w-[700px] mx-auto text-center rounded-lg">
@@ -42,6 +48,9 @@ const Contact = () => {
             </div>
             <ToastContainer></ToastContainer>
         </div>
+
+        </div>
+        
     );
 };
 

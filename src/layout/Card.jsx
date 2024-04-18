@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const Card = ({item}) => {
-    console.log(item)
+    // console.log(item)
     const {image,id,description,location,area,price,estate_title,facilities,status,segment_name}=item;
     return (
         <div className="card lg:w-[500px] xl:w-[610px] bg-base-100 shadow-xl">

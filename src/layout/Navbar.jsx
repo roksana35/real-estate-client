@@ -40,7 +40,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
           <li><NavLink to='/' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Home</NavLink></li>
               <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
-              <li><NavLink to='/update' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>Update Profile</NavLink></li>
+              <li><NavLink to='/contact' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>contact</NavLink></li>
               {
                 user&& <li><NavLink to='/user' className={({isActive})=> isActive?'text-green-500 font-bold ':'font-bold '}>User Profile</NavLink></li>
                 
@@ -49,20 +49,23 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {
-            user? <div className="dropdown dropdown-end">
+            user? <div className="dropdown dropdown-end flex items-center justify-center">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="https://i.ibb.co/7vhnSXx/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg">
+                <div className="w-10  rounded-full ">
+                  <img className="flex items-center justify-center "  src={user.photoURL}>
                   </img>
+                  
                 </div>
 
+
               </label>
-              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-24 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <button className="btn btn-sm btn-ghost">{user.displayName}</button>
+              </li>
 
               </ul>
-              {/* <li>
-                <button className="btn btn-sm btn-ghost">Farhan</button>
-              </li> */}
+              
             
             <button onClick={handleLogout} className="btn bg-green-500 text-white">Sign Out </button>
             </div>

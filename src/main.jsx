@@ -17,6 +17,7 @@ import Updateprofile from './Pages/Updateprofile';
 import Deatils from './Pages/Deatils';
 import Private from './layout/Private';
 import Contact from './Pages/Contact';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const router = createBrowserRouter([
@@ -41,38 +42,33 @@ const router = createBrowserRouter([
       },
       {
         path:'/item/:id',
-        element:<Private><Deatils></Deatils></Private>
+        element:<Private><Deatils></Deatils></Private>,
+        loader:()=>fetch('/data.json')
       }
     ]
   },
   {
     path:'/login',
-    element:<Route></Route>,
-    children:[
-      {
-        path:"/login",
-        element:<Loginpage></Loginpage>
-      }
-    ]
+    element:<Loginpage></Loginpage>,
+    
   },
   {
     path:'/register',
-    element:<Route></Route>,
-    children:[
-      {
-        path:'/register',
-        element:<Register></Register>
-      }
-    ]
+    element:<Register></Register>,
+    
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <HelmetProvider>
     <Authprovider>
     <RouterProvider router={router} />
 
     </Authprovider>
+
+    </HelmetProvider>
+    
    
   </React.StrictMode>,
 )

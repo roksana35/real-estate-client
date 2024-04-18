@@ -4,6 +4,10 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/Authprovider";
 import { Link } from "react-router-dom";
+import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer";
+import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 // import {updateProfile} from 'firebase/auth'
 // import auth from "../firebase.config";
 
@@ -49,6 +53,7 @@ const Register = () => {
     console.log(name,email,password,image);
     createUser(email,password)
     .then(result=>{
+      updateProfile()
     
       console.log(result.user);
       // toast.success('user create successfully')
@@ -67,7 +72,14 @@ const Register = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200 lg:ml-44">
+      <div>
+        <Helmet>
+          <title>Register Page</title>
+        </Helmet>
+        <Navbar></Navbar>
+
+
+        <div className="hero min-h-screen bg-base-200 ">
         <div className="hero-content flex-col ">
           <div className="text-center ">
             <h1 className="text-5xl font-bold">Register now!</h1>
@@ -122,6 +134,16 @@ const Register = () => {
           </div>
         </div>
       </div>
+
+      
+      <Footer></Footer>
+
+
+
+
+
+      </div>
+        
     );
 };
 
